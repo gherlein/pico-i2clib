@@ -1,7 +1,9 @@
 /*
-    This code originates from the Getting started with Raspberry Pi Pico document
-    https://datasheets.raspberrypi.org/pico/getting-started-with-pico.pdf
-    CC BY-ND Raspberry Pi (Trading) Ltd
+    pico-imu
+
+(c) 2024 Gregory Herlein
+
+
 */
 
 #include "hardware/gpio.h"
@@ -9,7 +11,6 @@
 #include "pico/binary_info.h"
 #include "pico/stdlib.h"
 #include "pico/time.h"
-#include "pico/types.h"
 #include "pico/types.h"
 #include <stdint.h>
 #include <stdio.h>
@@ -50,7 +51,7 @@ i2c_inst_t *pico_init_i2c(i2c_inst_t *i2c, uint baudrate, uint8_t sdaPin, uint8_
     return i2c;
 }
 
-void scan_i2c(i2c_inst_t *i2c)
+void pico_scan_i2c(i2c_inst_t *i2c)
 {
     printf("\nI2C Bus Scan\n");
     printf("   0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F\n");

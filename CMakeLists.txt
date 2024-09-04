@@ -15,13 +15,12 @@ add_library(pico-i2clib
 target_include_directories(pico-i2clib PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
         include
-        # add other folders as needed
 )
 
 target_link_libraries(pico-i2clib
 	pico_stdlib
     hardware_irq
     hardware_i2c
-	# other libs as needed
+    hardware_gpio
 )
 
