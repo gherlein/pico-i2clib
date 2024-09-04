@@ -6,15 +6,16 @@ include(pico_sdk_import.cmake)
 project(pico-i2clib C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
+file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.[ch]")
 
 pico_sdk_init()
 add_library(pico-i2clib
-    src/
+    ${SOURCES}
 )
 
 target_include_directories(pico-i2clib PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
-        include
+    ${CMAKE_CURRENT_LIST_DIR}
+    include
 )
 
 target_link_libraries(pico-i2clib
